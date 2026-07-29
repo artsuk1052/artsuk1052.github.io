@@ -1,0 +1,110 @@
+/* ================================================================
+   다시, 나의 일 — 공통 사이트 스타일 (정보 페이지·가이드·정책)
+   파스텔(노랑·분홍·연두) + 둥근 글꼴 Jua
+   ================================================================ */
+:root{
+  --bg:#fff8f1; --card:#ffffff; --ink:#4c4450; --ink-soft:#7c7386;
+  --line:#f0e5da; --shadow:0 6px 20px rgba(205,160,155,.14); --radius:20px;
+  --pink:#ff9db6; --pink-deep:#e0648c; --pink-soft:#ffe7ee;
+  --yellow:#ffd24d; --yellow-deep:#eaad00; --yellow-soft:#fff4cf;
+  --green:#9ed77a; --green-deep:#5aa834; --green-soft:#ebf8de;
+  --maxw:820px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:'Jua',"Malgun Gothic","맑은 고딕",-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  font-size:18px; line-height:1.85; -webkit-text-size-adjust:100%;
+}
+a{color:var(--pink-deep); text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 18px;}
+img{max-width:100%;}
+
+/* ---------- 헤더 / 네비 ---------- */
+.site-header{position:sticky; top:0; z-index:30;
+  background:linear-gradient(120deg,var(--pink),var(--yellow)); box-shadow:var(--shadow);}
+.site-header .nav{display:flex; align-items:center; gap:14px; padding:12px 18px; max-width:1040px;}
+.brand{color:#5a3f49; font-size:1.2rem; flex:0 0 auto;}
+.brand:hover{text-decoration:none;}
+.nav-links{margin-left:auto; display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+.nav-links a{color:#5a3f49; padding:8px 12px; border-radius:12px; font-size:1rem;}
+.nav-links a:hover{background:rgba(255,255,255,.35); text-decoration:none;}
+.nav-links a.cta{background:#fff; color:var(--pink-deep); box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.nav-toggle{display:none; margin-left:auto; background:rgba(255,255,255,.5); border:0;
+  color:#5a3f49; font-size:1.3rem; width:44px; height:44px; border-radius:12px; cursor:pointer;}
+@media(max-width:680px){
+  .nav-toggle{display:block;}
+  .nav-links{display:none; width:100%; flex-direction:column; align-items:stretch; margin:8px 0 0;}
+  .nav-links.open{display:flex;}
+  .nav-links a{background:rgba(255,255,255,.35);}
+}
+
+/* ---------- 히어로 ---------- */
+.hero{background:linear-gradient(180deg,#fff5e6,var(--bg)); text-align:center; padding:44px 18px 30px;}
+.hero h1{font-size:2rem; margin:.2em 0; letter-spacing:-.5px; line-height:1.35;}
+.hero p{color:var(--ink-soft); max-width:620px; margin:8px auto 20px;}
+.btn{display:inline-block; border:0; border-radius:16px; padding:15px 26px; font-size:1.15rem;
+  font-weight:400; cursor:pointer; letter-spacing:-.3px; font-family:inherit;}
+.btn.primary{background:linear-gradient(180deg,#ffdb62,#ffc42e); color:#6b4e0c;}
+.btn.primary:hover{text-decoration:none; filter:brightness(1.02);}
+.btn.ghost{background:#ffeaf0; color:var(--pink-deep);}
+
+/* ---------- 카드 그리드(가이드 목록) ---------- */
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; margin:22px 0;}
+.gcard{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:18px 18px 20px; box-shadow:var(--shadow); display:block; color:inherit;}
+.gcard:hover{text-decoration:none; transform:translateY(-2px); transition:transform .12s;}
+.gcard .emo{font-size:1.8rem;}
+.gcard h3{margin:.3em 0 .2em; font-size:1.12rem; color:var(--ink);}
+.gcard p{margin:0; color:var(--ink-soft); font-size:.92rem;}
+
+/* ---------- 본문(아티클) ---------- */
+main{padding:26px 0 10px;}
+.article h1{font-size:1.75rem; line-height:1.4; letter-spacing:-.5px; margin:.2em 0 .1em;}
+.article .meta{color:var(--ink-soft); font-size:.9rem; margin-bottom:20px;}
+.article h2{font-size:1.35rem; margin:1.5em 0 .4em; padding-left:12px; border-left:6px solid var(--yellow-deep);}
+.article h3{font-size:1.12rem; margin:1.2em 0 .3em; color:var(--pink-deep);}
+.article p{margin:.6em 0;}
+.article ul,.article ol{margin:.5em 0 1em; padding-left:26px;}
+.article li{margin:.35em 0;}
+.article strong,.article b{color:var(--pink-deep);}
+.article .lead{font-size:1.08rem; background:var(--yellow-soft); border-radius:14px; padding:14px 16px;}
+.callout{background:var(--green-soft); border-left:6px solid var(--green-deep);
+  border-radius:12px; padding:12px 16px; margin:16px 0;}
+.callout.warn{background:#fff3d6; border-left-color:var(--yellow-deep);}
+.callout.pink{background:var(--pink-soft); border-left-color:var(--pink-deep);}
+table.tbl{width:100%; border-collapse:collapse; margin:14px 0; font-size:.95rem;}
+table.tbl th,table.tbl td{border:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top;}
+table.tbl th{background:var(--yellow-soft);}
+.tbl-scroll{overflow-x:auto;}
+.cta-box{background:linear-gradient(135deg,#fff5e6,var(--pink-soft)); border:1px solid var(--line);
+  border-radius:var(--radius); padding:22px; text-align:center; margin:28px 0;}
+.cta-box h3{margin:.1em 0 .4em;}
+.related{border-top:1px solid var(--line); margin-top:30px; padding-top:18px;}
+.related h2{border:0; padding:0; font-size:1.2rem;}
+
+/* ---------- 푸터 ---------- */
+.site-footer{background:#fff; border-top:1px solid var(--line); margin-top:40px; padding:26px 18px 40px;}
+.site-footer .wrap{text-align:center;}
+.foot-links{margin-bottom:10px;}
+.foot-links a{color:var(--ink); margin:0 6px;}
+.foot-note{color:var(--ink-soft); font-size:.86rem; max-width:640px; margin:8px auto;}
+.copy{color:var(--ink-soft); font-size:.86rem; margin-top:8px;}
+
+/* ---------- 쿠키 동의 배너 ---------- */
+#cookie-banner{position:fixed; left:0; right:0; bottom:0; z-index:60;
+  background:#5b4650; color:#fff; padding:14px 18px; box-shadow:0 -4px 20px rgba(0,0,0,.2);
+  display:none;}
+#cookie-banner.show{display:block;}
+#cookie-banner .inner{max-width:900px; margin:0 auto; display:flex; align-items:center; gap:14px; flex-wrap:wrap;}
+#cookie-banner p{margin:0; flex:1; min-width:220px; font-size:.95rem;}
+#cookie-banner a{color:#ffd76a;}
+#cookie-banner button{background:var(--yellow); color:#5c4410; border:0; border-radius:12px;
+  padding:10px 18px; font-size:1rem; cursor:pointer; font-family:inherit;}
+
+/* ---------- 광고 자리(승인 후 광고 코드 삽입) ---------- */
+.ad-slot{margin:22px auto; text-align:center; min-height:0;}
+
+.skip{position:absolute; left:-9999px;}
